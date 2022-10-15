@@ -16,4 +16,12 @@ app.get("/about", (req, res) => {
     res.sendFile(path.join(__dirname, "/views/about.html"));
 });
 
+app.get("/employees", (req, res)=>{
+    res.send("<h1>Employees Page</h1>");
+});
+
+app.get("/managers", (req, res)=>{
+    res.send("<h1>Managers Page</h1>");
+});
+
 app.listen(port, onStart);
