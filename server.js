@@ -17,7 +17,7 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/employees", (req, res)=>{
-    res.send("<h1>Employees Page</h1>");
+    res.json("<h1>Employees Page</h1>");
 });
 
 app.get("/managers", (req, res)=>{
