@@ -21,7 +21,7 @@ exports.initialize = function initialize(){
 
 exports.getAllEmployees = function getAllEmployees(){
     return new Promise(function(resolve, reject){
-        if(employees.lenght == 0){
+        if(employees.length == 0){
             reject("No results returned");
         }
         else{
