@@ -42,7 +42,7 @@ app.get("/departments", (req, res)=>{
 });
 
 app.use((req, res)=>{
-    res.status(404).send("<h1 style='font-family:verdana;'><b>Error 404</b>: Page not found</h1>");
+    res.status(404).send("<h1 style='font-family:verdana;'>Error 404: Page not found</h1>");
 });
 
 dat.initialize().then(()=>{
