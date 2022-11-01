@@ -30,6 +30,14 @@ app.get("/about", (req, res) => {
     res.sendFile(path.join(__dirname, "/views/about.html"));
 });
 
+app.get("/employees/add", (req, res)=>{
+    //Code here
+});
+
+app.get("/images/add", (req, res)=>{
+    //Code here
+});
+
 app.get("/employees", (req, res)=>{
     dat.getAllEmployees().then((data)=>{
         res.json(data);
