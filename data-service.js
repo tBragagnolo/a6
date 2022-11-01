@@ -13,6 +13,7 @@ exports.initialize = function initialize(){
                 if (err) reject("Failure to read file departments.json!");
                 departments = JSON.parse(data);
             }).then(()=>{
+                console.log(employees[i]);
                 resolve();
             });    
         });
