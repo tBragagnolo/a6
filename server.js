@@ -14,6 +14,7 @@ other source
 var express = require("express");
 var path = require("path");
 var multer = require("multer");
+var fs = require('fs');
 var dat = require('./data-service');
 
 app = express();
@@ -44,6 +45,14 @@ app.get("/employees/add", (req, res)=>{
 
 app.get("/images/add", (req, res)=>{
     res.sendFile(path.join(__dirname, "/views/addImage.html"));
+});
+
+app.post("/images/add", upload.single("imageFile"), (req, res)=>{
+    res.redirect("/images");
+});
+
+app.get("/images", (req, res)=>{
+    
 });
 
 app.get("/employees", (req, res)=>{
