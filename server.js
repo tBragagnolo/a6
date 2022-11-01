@@ -31,11 +31,11 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/employees/add", (req, res)=>{
-    //Code here
+    res.sendFile(path.join(__dirname, "/views/addEmployee.html"));
 });
 
 app.get("/images/add", (req, res)=>{
-    //Code here
+    res.sendFile(path.join(__dirname, "/views/addImage.html"));
 });
 
 app.get("/employees", (req, res)=>{
