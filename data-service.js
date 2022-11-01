@@ -14,11 +14,7 @@ exports.initialize = function initialize(){
                 departments = JSON.parse(data);
             }).then(()=>{
                 resolve();
-            }).catch(()=>{
-                reject("Error");
-            });    
-        }).catch(()=>{
-            reject("Error");
+            });   
         });
     });
 }
