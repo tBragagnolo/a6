@@ -13,10 +13,18 @@ other source
 
 var express = require("express");
 var path = require("path");
+var multer = require("multer");
 var dat = require('./data-service');
 
 app = express();
 var port = process.env.PORT || 8080;
+var storage = multer.diskStorage({
+    destination: "./public/images/uploaded",
+    filename: function(req, file, cb){
+        cb(null, Date.now() + path.extname(file.originalname));
+    }
+});
+var upload = multer({storage: storage});
 
 function onStart(){
     console.log("Express http server listening on port", port);
