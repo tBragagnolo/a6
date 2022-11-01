@@ -18,15 +18,31 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/employees", (req, res)=>{
-    res.json("<h1>Employees Page</h1>");
+    dat.getAllEmployees().then((data)=>{
+        res.json(data);
+    }).catch((message)=>{
+        res.json({"Message": message});
+    });
 });
 
 app.get("/managers", (req, res)=>{
-    res.send("<h1>Managers Page</h1>");
+    dat.getManagers().then((data)=>{
+        res.json(data);
+    }).catch((message)=>{
+        res.json({"Message": message});
+    });
+});
+
+app.get("/departments", (req, res)=>{
+    dat.getDepartments().then((data)=>{
+        res.json(data);
+    }).catch((message)=>{
+        res.json({"Message": message});
+    });
 });
 
 app.use((req, res)=>{
-    res.status(404).send("<h1>Error 404: Page not found</h1>");
+    res.status(404).send("<h1 style='font-family:verdana;'><b>Error 404</b>: Page not found</h1>");
 });
 
 dat.initialize().then(()=>{
