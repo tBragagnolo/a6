@@ -43,6 +43,12 @@ app.get("/employees/add", (req, res)=>{
     res.sendFile(path.join(__dirname, "/views/addEmployee.html"));
 });
 
+app.post("/employees/add", (req, res)=>{
+    dat.addEmployee(req.body).then(()=>{
+        res.redirect("/employees");
+    });
+});
+
 app.get("/images/add", (req, res)=>{
     res.sendFile(path.join(__dirname, "/views/addImage.html"));
 });
@@ -52,7 +58,7 @@ app.post("/images/add", upload.single("imageFile"), (req, res)=>{
 });
 
 app.get("/images", (req, res)=>{
-    
+
 });
 
 app.get("/employees", (req, res)=>{
