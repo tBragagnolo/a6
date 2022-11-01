@@ -1,25 +1,25 @@
-var fs = require('fs').promises;
+var fs = require('fs');
 
 var employees = [];
 var departments = [];
 
 exports.initialize = function initialize(){
     return new Promise(function(resolve, reject){
-        fs.readFile('./data/employees.json',(err,data)=>{
-            if (err){
-                console.log("Error");
-                reject("Failure to read file employees.json!");
+        fs.readFile('./data/employees.json', 'utf8', (err,data)=>{
+            if (err) reject("Failure to read file employees.json!");
+            else{
+                employees = JSON.parse(data);
+
+                fs.readFile('./data/departments.json', 'utf8', (err, data)=>{
+                    if(err) reject("Failure to read file from departments.json");
+                    else{
+                        departments = JSON.parse(data);
+                        resolve();
+                    }
+                });
             }
-            employees = JSON.parse(data);
-        }).then(()=>{
-            fs.readFile('./data/departments.json',(err,data)=>{
-                if (err) reject("Failure to read file departments.json!");
-                departments = JSON.parse(data);
-            }).then(()=>{
-                resolve();
-            });   
         });
-    });
+    })
 }
 
 exports.getAllEmployees = function getAllEmployees(){
