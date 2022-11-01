@@ -7,13 +7,13 @@ exports.initialize = function initialize(){
     return new Promise(function(resolve, reject){
         fs.readFile('./data/employees.json',(err,data)=>{
             if (err) reject("Failure to read file employees.json!");
+            console.log(data);
             employees = JSON.parse(data);
         }).then(()=>{
             fs.readFile('./data/departments.json',(err,data)=>{
                 if (err) reject("Failure to read file departments.json!");
                 departments = JSON.parse(data);
             }).then(()=>{
-                console.log(employees[i]);
                 resolve();
             });    
         });
