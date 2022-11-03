@@ -62,7 +62,10 @@ app.post("/images/add", upload.single("imageFile"), (req, res)=>{
 });
 
 app.get("/images", (req, res)=>{
-    res.redirect();
+    fs.readdir("./public/images/uploaded", function(err, items){
+        if(err) console.log(err);
+        else res(items);
+    });
 });
 
 app.get("/employees", (req, res)=>{
