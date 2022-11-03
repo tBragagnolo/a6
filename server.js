@@ -44,7 +44,7 @@ app.get("/employees/add", (req, res)=>{
 });
 
 app.post("/employees/add", (req, res)=>{
-    console.log(req.body);
+    console.log(req.body); //For testing
     dat.addEmployee(req.body).then(()=>{
         res.redirect("/employees");
     });
