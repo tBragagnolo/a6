@@ -64,7 +64,7 @@ app.post("/images/add", upload.single("imageFile"), (req, res)=>{
 app.get("/images", (req, res)=>{
     fs.readdir("./public/images/uploaded", function(err, items){
         if(err) console.log(err);
-        else res.send(items);
+        else res.json(items);
     });
 });
 
