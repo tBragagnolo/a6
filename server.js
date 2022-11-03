@@ -59,7 +59,7 @@ app.post("/images/add", upload.single("imageFile"), (req, res)=>{
 });
 
 app.get("/images", (req, res)=>{
-
+    res.redirect();
 });
 
 app.get("/employees", (req, res)=>{
