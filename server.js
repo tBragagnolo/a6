@@ -19,8 +19,10 @@ var dat = require('./data-service');
 
 app = express();
 var port = process.env.PORT || 8080;
+
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
 var storage = multer.diskStorage({
     destination: "./public/images/uploaded",
     filename: function(req, file, cb){
@@ -46,7 +48,6 @@ app.get("/employees/add", (req, res)=>{
 });
 
 app.post("/employees/add", (req, res)=>{
-    console.log(req.body); //For testing
     dat.addEmployee(req.body).then(()=>{
         res.redirect("/employees");
     });
