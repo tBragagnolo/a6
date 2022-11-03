@@ -71,7 +71,6 @@ exports.addEmployee = function addEmployee(employeeData){
         else employeeData.isManager = true;
         employeeData.employeeNum = employees.length + 1;
         employees.push(employeeData);
-        console.log(employeeData); //For testing
         resolve();
     });
 }
