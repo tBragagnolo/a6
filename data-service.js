@@ -70,6 +70,7 @@ exports.addEmployee = function addEmployee(employeeData){
         if(employeeData.isManager == undefined) employeeData.isManager = false;
         employeeData.employeeNum = employees.length + 1;
         employees.push(employeeData);
+        console.log(employeeData); //For testing
         resolve();
     });
 }
