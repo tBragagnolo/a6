@@ -1,15 +1,15 @@
 /*************************************************************************
-* BTI325– Assignment 3
-* I declare that this assignment is my own work in accordance with Seneca Academic 
-Policy. No part * of this assignment has been copied manually or electronically from any 
-other source 
+* BTI325– Assignment 3 
+* I declare that this assignment is my own work in accordance with Seneca Academic Policy. 
+No part of this assignment has been copied manually or electronically from any other source.
 * (including 3rd party web sites) or distributed to other students.
 * 
-* Name: Tom Bragagnolo Student ID: 139157218 Date: October 31, 2022
-*
-* Your app’s URL (from Cyclic) : https://real-erin-lizard-cuff.cyclic.app
-*
-*************************************************************************/
+* Name: Tom Bragagnolo Student ID: 139157218 Date: November 3, 2022
+* 
+* Your app’s URL (from Heroku) that I can click to see your application: 
+* https://whispering-chamber-59566.herokuapp.com/
+* 
+*************************************************************************/ 
 
 var express = require("express");
 var path = require("path");
