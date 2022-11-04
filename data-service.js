@@ -104,3 +104,18 @@ exports.getEmployeesByDepartment = function getEmployeesByDepartment(department)
         else resolve(emp_d);
     });
 }
+
+exports.getEmployeesByManager = function getEmployeesByManager(manager){
+    return new Promise(function(resolve, reject){
+        var emp_m = [];
+
+        if(employees.length != 0){
+            for(var i = 0; i < employees.length; i++){
+                if(employees[i].employeeManagerNum = manager) emp_m.push(employees[i]);
+            }
+        }
+
+        if(emp_m.length == 0) reject("No results returned");
+        else resolve(emp_m);
+    });
+}
