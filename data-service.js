@@ -75,8 +75,17 @@ exports.addEmployee = function addEmployee(employeeData){
     });
 }
 
-exports.getEmployeesByStatus = function getEmployeesByStatus(){
+exports.getEmployeesByStatus = function getEmployeesByStatus(status){
     return new Promise(function(resolve, reject){
+        var emp = [];
 
+        if(employees.length != 0){
+            for(var i = 0; i < employees.length; i++){
+                if(employees[i].status = status) emp.push(employees[i]);
+            }
+        }
+
+        if(emp.length == 0) reject("No results returned");
+        else resolve(emp);
     });
 }
