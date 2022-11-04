@@ -81,7 +81,7 @@ exports.getEmployeesByStatus = function getEmployeesByStatus(status){
 
         if(employees.length != 0){
             for(var i = 0; i < employees.length; i++){
-                if(employees[i].status = status) emp_s.push(employees[i]);
+                if(employees[i].status == status) emp_s.push(employees[i]);
             }
         }
 
@@ -96,7 +96,7 @@ exports.getEmployeesByDepartment = function getEmployeesByDepartment(department)
 
         if(employees.length != 0){
             for(var i = 0; i < employees.length; i++){
-                if(employees[i].department = department) emp_d.push(employees[i]);
+                if(employees[i].department == department) emp_d.push(employees[i]);
             }
         }
 
@@ -111,11 +111,28 @@ exports.getEmployeesByManager = function getEmployeesByManager(manager){
 
         if(employees.length != 0){
             for(var i = 0; i < employees.length; i++){
-                if(employees[i].employeeManagerNum = manager) emp_m.push(employees[i]);
+                if(employees[i].employeeManagerNum == manager) emp_m.push(employees[i]);
             }
         }
 
         if(emp_m.length == 0) reject("No results returned");
         else resolve(emp_m);
+    });
+}
+
+exports.getEmployeeByNum = function getEmployeeByNum(num){
+    return new Promise(function(resolve, reject){
+        var flag = false;
+
+        if(employees.length != 0){
+            for(var i = 0; i < employees.length; i++){
+                if(employees[i].employeeNum == num){
+                    flag = true;
+                    resolve(employees[i]);
+                }
+            }
+        }
+
+        if(flag == false) reject("No results returned");
     });
 }
