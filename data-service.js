@@ -77,15 +77,15 @@ exports.addEmployee = function addEmployee(employeeData){
 
 exports.getEmployeesByStatus = function getEmployeesByStatus(status){
     return new Promise(function(resolve, reject){
-        var emp = [];
+        var emp_s = [];
 
         if(employees.length != 0){
             for(var i = 0; i < employees.length; i++){
-                if(employees[i].status = status) emp.push(employees[i]);
+                if(employees[i].status = status) emp_s.push(employees[i]);
             }
         }
 
-        if(emp.length == 0) reject("No results returned");
-        else resolve(emp);
+        if(emp_s.length == 0) reject("No results returned");
+        else resolve(emp_s);
     });
 }
