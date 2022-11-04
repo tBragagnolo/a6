@@ -74,3 +74,9 @@ exports.addEmployee = function addEmployee(employeeData){
         resolve();
     });
 }
+
+exports.getEmployeesByStatus = function getEmployeesByStatus(){
+    return new Promise(function(resolve, reject){
+
+    });
+}
