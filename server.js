@@ -102,6 +102,14 @@ app.get("/employees", (req, res)=>{
     }
 });
 
+app.get("/employee/:val", (req, res)=>{
+    dat.getEmployeeByNum(req.params.val).then((data)=>{
+        res.json(data);
+    }).catch((message)=>{
+        res.json({"Message": message});
+    });
+});
+
 app.get("/managers", (req, res)=>{
     dat.getManagers().then((data)=>{
         res.json(data);
