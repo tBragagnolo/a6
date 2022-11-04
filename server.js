@@ -69,11 +69,37 @@ app.get("/images", (req, res)=>{
 });
 
 app.get("/employees", (req, res)=>{
-    dat.getAllEmployees().then((data)=>{
-        res.json(data);
-    }).catch((message)=>{
-        res.json({"Message": message});
-    });
+    if(req.query.status){
+        dat.getEmployeesByStatus(req.query.status).then((data)=>{
+            res.json(data);
+        }).catch((message)=>{
+            res.json({"Message": message});
+        });
+    }
+
+    else if(req.query.department){
+        dat.getEmployeesByDepartment(req.query.department).then((data)=>{
+            res.json(data);
+        }).catch((message)=>{
+            res.json({"Message": message});
+        })
+    }
+
+    else if(req.query.manager){
+        dat.getEmployeesByManager(req.query.manager).then((data)=>{
+            res.json(data);
+        }).catch((message)=>{
+            res.json({"Message": message});
+        });
+    }
+
+    else{
+        dat.getAllEmployees().then((data)=>{
+            res.json(data);
+        }).catch((message)=>{
+            res.json({"Message": message});
+        });
+    }
 });
 
 app.get("/managers", (req, res)=>{
