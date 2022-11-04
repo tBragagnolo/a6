@@ -89,3 +89,18 @@ exports.getEmployeesByStatus = function getEmployeesByStatus(status){
         else resolve(emp_s);
     });
 }
+
+exports.getEmployeesByDepartment = function getEmployeesByDepartment(department){
+    return new Promise(function(resolve, reject){
+        var emp_d = [];
+
+        if(employees.length != 0){
+            for(var i = 0; i < employees.length; i++){
+                if(employees[i].department = department) emp_d.push(employees[i]);
+            }
+        }
+
+        if(emp_d.length == 0) reject("No results returned");
+        else resolve(emp_d);
+    });
+}
