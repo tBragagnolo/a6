@@ -43,7 +43,7 @@ function onStart(){
 }
 
 app.get("/", (req, res) =>{
-    res.sendFile(path.join(__dirname, "/views/home.html"));
+    res.render("home", {layout: "main"});
 });
 
 app.get("/about", (req, res) => {
