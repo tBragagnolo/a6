@@ -32,7 +32,7 @@ var storage = multer.diskStorage({
 });
 var upload = multer({storage: storage});
 
-app.engine(".hbs", exphbs({
+app.engine(".hbs", exphbs.engine({
     extname: ".hbs",
     defaultLayout: "main"
 }));
