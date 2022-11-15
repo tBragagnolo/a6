@@ -32,7 +32,11 @@ var storage = multer.diskStorage({
 });
 var upload = multer({storage: storage});
 
-
+app.engine(".hbs", exphbs({
+    extname: ".hbs",
+    defaultLayout: "main"
+}));
+app.set("view engine", ".hbs");
 
 function onStart(){
     console.log("Express http server listening on port", port);
