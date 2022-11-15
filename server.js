@@ -14,7 +14,7 @@ No part of this assignment has been copied manually or electronically from any o
 var express = require("express");
 var path = require("path");
 var multer = require("multer");
-var exphbs = require("express-handlebars");
+var exphbs = require("handlebars");
 var fs = require('fs');
 var dat = require('./data-service');
 
