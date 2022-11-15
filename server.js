@@ -47,7 +47,7 @@ app.get("/", (req, res) =>{
 });
 
 app.get("/about", (req, res) => {
-    res.sendFile(path.join(__dirname, "/views/about.html"));
+    res.render("about", {layout: "main"});
 });
 
 app.get("/employees/add", (req, res)=>{
