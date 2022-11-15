@@ -51,7 +51,7 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/employees/add", (req, res)=>{
-    res.render("getEmployee", {layout: "main"});
+    res.render("addEmployee", {layout: "main"});
 });
 
 app.post("/employees/add", (req, res)=>{
@@ -61,7 +61,7 @@ app.post("/employees/add", (req, res)=>{
 });
 
 app.get("/images/add", (req, res)=>{
-    res.render("getImage", {layout: "main"});
+    res.render("addImage", {layout: "main"});
 });
 
 app.post("/images/add", upload.single("imageFile"), (req, res)=>{
