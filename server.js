@@ -34,7 +34,15 @@ var upload = multer({storage: storage});
 
 app.engine(".hbs", exphbs.engine({
     extname: ".hbs",
-    defaultLayout: "main"
+    defaultLayout: "main",
+    helpers:{
+        navLink: function(url, options){
+            return '<li' + 
+            ((url == app.locals.activeRoute) ? ' class="active" ' : '') + 
+           3
+            '><a href=" ' + url + ' ">' + options.fn(this) + '</a></li>';
+        } 
+    }
 }));
 app.set("view engine", ".hbs");
 
