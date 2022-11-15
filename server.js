@@ -51,7 +51,7 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/employees/add", (req, res)=>{
-    res.sendFile(path.join(__dirname, "/views/addEmployee.html"));
+    res.render("getEmployee", {layout: "main"});
 });
 
 app.post("/employees/add", (req, res)=>{
@@ -61,7 +61,7 @@ app.post("/employees/add", (req, res)=>{
 });
 
 app.get("/images/add", (req, res)=>{
-    res.sendFile(path.join(__dirname, "/views/addImage.html"));
+    res.render("getImage", {layout: "main"});
 });
 
 app.post("/images/add", upload.single("imageFile"), (req, res)=>{
