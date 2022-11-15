@@ -42,6 +42,12 @@ function onStart(){
     console.log("Express http server listening on port", port);
 }
 
+app.use(function(req,res,next){
+    let route = req.baseUrl + req.path;
+    app.locals.activeRoute = (route == "/") ? "/" : route.replace(/\/$/, "");
+    next();
+   });
+
 app.get("/", (req, res) =>{
     res.render("home", {layout: "main"});
 });
