@@ -141,13 +141,13 @@ app.get("/employee/:val", (req, res)=>{
     });
 });
 
-app.get("/managers", (req, res)=>{
+/*app.get("/managers", (req, res)=>{
     dat.getManagers().then((data)=>{
         res.json(data);
     }).catch((message)=>{
         res.json({"Message": message});
     });
-});
+});*/
 
 app.get("/departments", (req, res)=>{
     dat.getDepartments().then((data)=>{
