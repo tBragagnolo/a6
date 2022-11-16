@@ -19,6 +19,19 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <input class="form-control" id="employeeNum" name="employeeNum" type="hidden" value="{{ employee.employeeNum}}" />
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input class="form-control" id="email" name="email" type="email" value="{{ employee.email}}" />
+                </div>
+            </div>
+        </div>
         </fieldset>
         <hr />
         <input type="submit" class="btn btn-primary pull-right" value="Update Employee" /><br /><br /><br />
