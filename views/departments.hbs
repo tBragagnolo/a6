@@ -2,8 +2,12 @@
     <div class="col-md-12">
         <h2>Departments</h2>
         <hr>
-        {{#each departments}}
-            <p>{{departmentId}} {{departmentName}}</p>
-        {{/each}}
+        <div class="table-responsive">
+            <table class="table">
+                {{#each departments}}
+                    <p>{{departmentId}} {{departmentName}}</p>
+                {{/each}}
+            </table>
+        </div>
     </div>
 </div>
