@@ -2,6 +2,8 @@
     <div class="col-md-12">
         <h2>Departments</h2>
         <hr>
-        <p>TODO: render a list of all department id's and names here</p>
+        {{#each departments}}
+            <p>{{deparmentId}} {{departmentName}}</p>
+        {{/each}}
     </div>
 </div>
