@@ -151,7 +151,7 @@ app.get("/employee/:val", (req, res)=>{
 
 app.get("/departments", (req, res)=>{
     dat.getDepartments().then((data)=>{
-        res.json(data);
+        res.render("departments", {departments: data});
     }).catch((message)=>{
         res.json({"Message": message});
     });
