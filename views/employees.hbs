@@ -15,7 +15,16 @@
                     <td><b>Hire On</b></td>
                 </tr>
                 {{#each employees}}
-                    <p>{{firstName}} {{lastName}}</p>
+                    <tr>
+                        <td>{{employeeNum}}</td>
+                        <td>{{firstName}} {{lastName}}</td>
+                        <td>{{email}}</td>
+                        <td>{{addressStreet}}, , {{addressState}}, {{addressPostal}}</td>
+                        <td>     </td>
+                        <td>{{status}}</td>
+                        <td>{{department}}</td>
+                        <td>{{hireDate}}</td>
+                    </tr>
                 {{/each}}
             </table>
         </div>
