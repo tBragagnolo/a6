@@ -102,9 +102,9 @@ app.get("/images", (req, res)=>{
 app.get("/employees", (req, res)=>{
     if(req.query.status){
         dat.getEmployeesByStatus(req.query.status).then((data)=>{
-            res.json(data);
+            res.render("employees", {employees: data});
         }).catch((message)=>{
-            res.json({"Message": message});
+            res.render({message: "no results"});
         });
     }
 
