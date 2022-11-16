@@ -4,8 +4,15 @@
         <hr>
         <div class="table-responsive">
             <table class="table">
+                <tr>
+                    <td><b>Department Number</b></td>
+                    <td><b>Department Name</b></td>
+                </tr>
                 {{#each departments}}
-                    <p>{{departmentId}} {{departmentName}}</p>
+                    <tr>
+                        <td><a href="/employees?department={{departmentNum}}">{{departmentNum}}</a></td>
+                        <td><a href="/employees?department={{departmentNum}}">{{departmentName}}</a></td>
+                    </tr>
                 {{/each}}
             </table>
         </div>
