@@ -62,7 +62,9 @@ app.use(function(req,res,next){
     let route = req.baseUrl + req.path;
     app.locals.activeRoute = (route == "/") ? "/" : route.replace(/\/$/, "");
     next();
-   });
+});
+
+app.use(express.static('/public/images/uploaded'));
 
 app.get("/", (req, res) =>{
     res.render("home", {layout: "main"});
