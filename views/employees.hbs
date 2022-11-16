@@ -18,11 +18,11 @@
                     <tr>
                         <td>{{employeeNum}}</td>
                         <td><a href="/employee/{{employeeNum}}">{{firstName}} {{lastName}}</a></td>
-                        <td><a href="mailto:{{email}}"></a>{{email}}</td>
+                        <td><a href="mailto:{{email}}">{{email}}</a></td>
                         <td>{{addressStreet}}, , {{addressState}}, {{addressPostal}}</td>
                         <td><a href="/employees?manager={{employeeManagerNum}}">{{employeeManagerNum}}</a></td>
                         <td>{{status}}</td>
-                        <td><a href="/employees?department={{department}}"></a>{{department}}</td>
+                        <td><a href="/employees?department={{department}}">{{department}}</a></td>
                         <td>{{hireDate}}</td>
                     </tr>
                 {{/each}}
