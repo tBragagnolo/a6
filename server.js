@@ -135,9 +135,9 @@ app.get("/employees", (req, res)=>{
 
 app.get("/employee/:val", (req, res)=>{
     dat.getEmployeeByNum(req.params.val).then((data)=>{
-        res.json(data);
+        res.render("employee", {employee: data});
     }).catch((message)=>{
-        res.json({"Message": message});
+        res.render("employess", {message: "no results"});
     });
 });
 
