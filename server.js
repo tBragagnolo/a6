@@ -110,25 +110,25 @@ app.get("/employees", (req, res)=>{
 
     else if(req.query.department){
         dat.getEmployeesByDepartment(req.query.department).then((data)=>{
-            res.json(data);
+            res.render("employees", {employees: data});
         }).catch((message)=>{
-            res.json({"Message": message});
+            res.render({message: "no results"});
         })
     }
 
     else if(req.query.manager){
         dat.getEmployeesByManager(req.query.manager).then((data)=>{
-            res.json(data);
+            res.render("employees", {employees: data});
         }).catch((message)=>{
-            res.json({"Message": message});
+            res.render({message: "no results"});
         });
     }
 
     else{
         dat.getAllEmployees().then((data)=>{
-            res.json(data);
+            res.render("employees", {employees: data});
         }).catch((message)=>{
-            res.json({"Message": message});
+            res.render({message: "no results"});
         });
     }
 });
