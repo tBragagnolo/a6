@@ -126,7 +126,7 @@ app.get("/employees", (req, res)=>{
 
     else{
         dat.getAllEmployees().then((data)=>{
-            res.render("employees", {employees: data});
+            res.render("employees", {employees: data, layout: "main"});
         }).catch((message)=>{
             res.render({message: "no results"});
         });
