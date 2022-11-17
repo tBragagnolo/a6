@@ -59,6 +59,24 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="isManager">Email:</label>
+                    {{#if isManager}}
+                        <input class="form-control" id="isManager" name="isManager" type="checkbox" />
+                    {{#else}}
+                        <input class="form-control" id="isManager" name="isManager" type="checkbox" checked />
+                    {{/if}}
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label for="SSN">Social Security Number:</label>
+                    <input class="form-control" id="SSN" name="SSN" type="text" value="{{ employee.SSN}}" readonly/>
+                </div>
+            </div>
+        </div>
         </fieldset>
         <hr />
         <input type="submit" class="btn btn-primary pull-right" value="Update Employee" /><br /><br /><br />
