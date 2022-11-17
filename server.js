@@ -91,12 +91,10 @@ app.post("/images/add", upload.single("imageFile"), (req, res)=>{
 });
 
 app.get("/images", (req, res)=>{
-    res.render("images");
-    
-    /*fs.readdir("./public/images/uploaded", function(err, items){
+    fs.readdir("./public/images/uploaded", function(err, items){
         if(err) console.log(err);
-        else res.json(items);
-    });*/
+        else res.render("images", {images: items});
+    });
 });
 
 app.get("/employees", (req, res)=>{
