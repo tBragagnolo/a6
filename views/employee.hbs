@@ -63,11 +63,7 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="isManager">Manager:</label>
-                    {{#if isManager}}
-                        <input class="form-control" id="isManager" name="isManager" type="checkbox" checked />
-                    {{else}}
-                        <input class="form-control" id="isManager" name="isManager" type="checkbox" />
-                    {{/if}}
+                    <input class="form-control" id="isManager" name="isManager" type="checkbox" {{#if employee.isManager}}checked {{/if}}/>
                 </div>
             </div>
             <div class="col-md-3">
@@ -79,22 +75,12 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="status">Status:</label><br>
-                    {{#equal employee.status "Full Time"}}
                     <label  class="checkbox-inline">
-                        <input type="radio" id="statusFT" name="status" value="Full Time" checked/> Full Time
+                        <input type="radio" id="status" name="status" value="Full Time" {{#equal employee.status "Full Time"}}checked{{/equal}}/> Full Time
                     </label>
                     <label class="checkbox-inline">
-                        <input type="radio" id="statusFT" name="status" value="Part Time" /> Part Time
-                    </label>
-                    {{/equal}}
-                    {{#equal employee.status "Part Time"}}
-                    <label  class="checkbox-inline">
-                        <input type="radio" id="status" name="status" value="Full Time" /> Full Time
-                    </label>
-                    <label class="checkbox-inline">
-                        <input type="radio" id="status" name="status" value="Part Time" checked/> Part Time
-                    </label>
-                    {{/equal}}    
+                        <input type="radio" id="status" name="status" value="Part Time" {{#equal employee.status "Part Time"}}checked{{/equal}}/> Part Time
+                    </label>   
                 </div>
             </div>
             <div class="col-md-3">
