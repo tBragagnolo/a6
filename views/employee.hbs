@@ -76,6 +76,23 @@
                     <input class="form-control" id="employeeManagerNum" name="employeeManagerNum" type="text" value="{{ employee.employeeManagerNum}}"/>
                 </div>
             </div>
+            <div class="col-md-3">
+                <div class="form-group">
+                    <label for="status">Status:</label><br>
+                    <label  class="checkbox-inline">
+                        <input type="radio" id="statusFT" name="status" value="Full Time" /> Full Time
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="radio" id="statusFT" name="status" value="Part Time" /> Part Time
+                    </label>    
+                </div>
+            </div>
+            <div class="col-md-2">
+                <div class="form-group">
+                    <label for="department">Department:</label><br>
+                    <input type="select" name="department">   
+                </div>
+            </div>
         </div>
         </fieldset>
         <hr />
