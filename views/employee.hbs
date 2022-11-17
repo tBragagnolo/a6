@@ -60,13 +60,13 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label for="isManager">Manager:</label>
                     {{#if isManager}}
-                        <input class="form-control" id="isManager" name="isManager" type="checkbox" />
-                    {{else}}
                         <input class="form-control" id="isManager" name="isManager" type="checkbox" checked />
+                    {{else}}
+                        <input class="form-control" id="isManager" name="isManager" type="checkbox" />
                     {{/if}}
                 </div>
             </div>
@@ -79,15 +79,25 @@
             <div class="col-md-3">
                 <div class="form-group">
                     <label for="status">Status:</label><br>
+                    {{#equal employee.status "Full Time"}}
                     <label  class="checkbox-inline">
-                        <input type="radio" id="statusFT" name="status" value="Full Time" /> Full Time
+                        <input type="radio" id="statusFT" name="status" value="Full Time" checked/> Full Time
                     </label>
                     <label class="checkbox-inline">
                         <input type="radio" id="statusFT" name="status" value="Part Time" /> Part Time
-                    </label>    
+                    </label>
+                    {{/equal}}
+                    {{#equal employee.status "Part Time"}}
+                    <label  class="checkbox-inline">
+                        <input type="radio" id="status" name="status" value="Full Time" /> Full Time
+                    </label>
+                    <label class="checkbox-inline">
+                        <input type="radio" id="status" name="status" value="Part Time" checked/> Part Time
+                    </label>
+                    {{/equal}}    
                 </div>
             </div>
-            <div class="col-md-2">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label for="department">Department:</label><br>
                     <input type="select" name="department">   
