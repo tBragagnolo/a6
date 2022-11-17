@@ -141,6 +141,11 @@ app.get("/employee/:val", (req, res)=>{
     });
 });
 
+app.post("/employee/update", (req, res) => {
+    console.log(req.body);
+    res.redirect("/employees");
+});
+
 /*app.get("/managers", (req, res)=>{
     dat.getManagers().then((data)=>{
         res.json(data);
