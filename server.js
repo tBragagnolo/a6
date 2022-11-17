@@ -64,7 +64,7 @@ app.use(function(req,res,next){
     next();
 });
 
-app.use(express.static("/public/images/uploaded"));
+app.use(express.static("/public/images"));
 
 app.get("/", (req, res) =>{
     res.render("home", {layout: "main"});
