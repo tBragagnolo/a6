@@ -136,3 +136,16 @@ exports.getEmployeeByNum = function getEmployeeByNum(num){
         if(flag == false) reject("No results returned");
     });
 }
+
+exports.updateEmployee = function updateEmployee(employeeData){
+    return new Promise(function(resolve, reject){
+        for(var i = 0; i < employees.length; i++){
+            if(employees[i].employeeNum == employeeData.employeeNum){
+                employees[i] = employeeData;
+                break;
+            }
+        }
+
+        resolve();
+    });
+}

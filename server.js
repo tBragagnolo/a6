@@ -142,8 +142,9 @@ app.get("/employee/:val", (req, res)=>{
 });
 
 app.post("/employee/update", (req, res) => {
-    console.log(req.body);
-    res.redirect("/employees");
+    dat.updateEmployee(req.body).then(()=>{
+        res.redirect("/employees");
+    });
 });
 
 /*app.get("/managers", (req, res)=>{
