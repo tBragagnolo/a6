@@ -60,9 +60,9 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-4">
                 <div class="form-group">
-                    <label for="isManager">Email:</label>
+                    <label for="isManager">Manager:</label>
                     {{#if isManager}}
                         <input class="form-control" id="isManager" name="isManager" type="checkbox" />
                     {{else}}
@@ -70,7 +70,7 @@
                     {{/if}}
                 </div>
             </div>
-            <div class="col-md-6">
+            <div class="col-md-3">
                 <div class="form-group">
                     <label for="SSN">Social Security Number:</label>
                     <input class="form-control" id="SSN" name="SSN" type="text" value="{{ employee.SSN}}" readonly/>
