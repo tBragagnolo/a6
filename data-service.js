@@ -60,7 +60,7 @@ exports.getAllEmployees = function getAllEmployees(){
         //resolve(test);
         Employee.findAll().then((data)=>{
             resolve(data);
-        }).cath(()=>{
+        }).catch(()=>{
             reject("not results returned");
         })
     });
