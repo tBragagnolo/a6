@@ -165,7 +165,9 @@ app.get("/departments/add", (req, res)=>{
 });
 
 app.post("/departments/add", (req, res)=>{
-    
+    dat.addDepartment(req.body).then(()=>{
+        res.redirect("/departments");
+    });
 });
 
 app.use((req, res)=>{
