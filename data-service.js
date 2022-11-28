@@ -169,3 +169,9 @@ exports.addDepartment = function addDepartment(departmentData){
         })
     });
 }
+
+exports.updateDepartment = function updateDepartment(departmentData){
+    return new Promise(function(resolve, reject){
+        
+    });
+}
