@@ -35,7 +35,7 @@ var Employee = sequelize.define('Project', {
     hireDate: Sequelize.STRING
 });
 
-var Department = sequelize.define('Project', {
+var Department = sequelize.define('Project2', {
     departmentId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
