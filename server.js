@@ -154,9 +154,9 @@ app.post("/employee/update", (req, res) => {
 app.get("/departments", (req, res)=>{
     dat.getDepartments().then((data)=>{
         if(data > 0) res.render("departments", {departments: data});
-        else res.json({"Message": message});
+        else res.render("departments", {message: "no results"});
     }).catch((message)=>{
-        res.json({"Message": message});
+        res.render("departments", {message: "no results"});
     });
 });
 
