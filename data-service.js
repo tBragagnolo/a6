@@ -13,7 +13,7 @@ var sequelize = new Sequelize('ykncfxty', 'ykncfxty', 'f08ogSbiRkLJ677KnDlT17cjf
 sequelize.authenticate().then(()=> console.log('Connection success.'))
 .catch((err)=>console.log("Unable to connect to DB.", err));
 
-var Employee = sequelize.define('Project', {
+var Employee = sequelize.define('Employee', {
     employeeNum: {
         type: Sequelize.INTEGER,
         primaryKey: true,
@@ -35,7 +35,7 @@ var Employee = sequelize.define('Project', {
     hireDate: Sequelize.STRING
 });
 
-var Department = sequelize.define('Project2', {
+var Department = sequelize.define('Department', {
     departmentId: {
         type: Sequelize.INTEGER,
         primaryKey: true,
