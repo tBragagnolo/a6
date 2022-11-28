@@ -76,6 +76,7 @@ exports.getDepartments = function getDepartments(){
 
 exports.addEmployee = function addEmployee(employeeData){
     return new Promise(function(resolve, reject){
+        employeeData.isManager = (employeeData.isManager) ? true : false;
         
     });
 }
