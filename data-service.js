@@ -114,7 +114,13 @@ exports.getEmployeesByManager = function getEmployeesByManager(manager){
 
 exports.getEmployeeByNum = function getEmployeeByNum(num){
     return new Promise(function(resolve, reject){
-        reject();
+        Employee.findAll({
+            where: {employeeNum: num}
+        }).then((data)=>{
+            resolve(data[0]);
+        }).catch(()=>{
+            reject("no results returned");
+        });
     });
 }
 
