@@ -160,6 +160,10 @@ app.get("/departments", (req, res)=>{
     });
 });
 
+app.get("/departments/add", (req, res)=>{
+    res.render("addDepartment");
+});
+
 app.use((req, res)=>{
     res.status(404).send("<h1 style='font-family:verdana;'>Error 404: Page not found</h1>");
 });
