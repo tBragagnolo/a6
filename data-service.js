@@ -140,6 +140,18 @@ exports.getEmployeeByNum = function getEmployeeByNum(num){
 
 exports.updateEmployee = function updateEmployee(employeeData){
     return new Promise(function(resolve, reject){
-        reject();
+        employeeData.isManager = (employeeData.isManager) ? true : false;
+
+        for(var item in employeeData){
+            if(employeeData[item] = "") employeeData[item] = null;
+        }
+
+        Employee.update(employeeData, {
+            where: {employeeNum: employeeData.employeeNum}
+        }).then(()=>{
+            resolve();
+        }).catch(()=>{
+            reject("unable to update employee");
+        })
     });
 }
