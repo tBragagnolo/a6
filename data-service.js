@@ -185,3 +185,9 @@ exports.updateDepartment = function updateDepartment(departmentData){
         })
     });
 }
+
+exports.getDepartmentById = function getDepartmentById(id){
+    return new Promise(function(resolve, reject){
+        
+    });
+}
