@@ -46,7 +46,11 @@ var Department = sequelize.define('Project', {
 
 exports.initialize = function initialize(){
     return new Promise(function(resolve, reject){
-        reject();
+        sequelize.sync().then(()=>{
+            resolve();
+        }).catch(()=>{
+            reject("unable to sync the database");
+        });
     })
 }
 
