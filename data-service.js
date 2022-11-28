@@ -188,6 +188,12 @@ exports.updateDepartment = function updateDepartment(departmentData){
 
 exports.getDepartmentById = function getDepartmentById(id){
     return new Promise(function(resolve, reject){
-        
+        Department.findAll({
+            where: {departmentId: id}
+        }).then((data)=>{
+            resolve(data[0]);
+        }).catch(()=>{
+            reject("no results returned");
+        })
     });
 }
