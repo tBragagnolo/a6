@@ -64,12 +64,6 @@ exports.getAllEmployees = function getAllEmployees(){
     });
 }
 
-exports.getManagers = function getManagers(){
-    return new Promise(function(resolve, reject){
-        reject();
-    });
-}
-
 exports.getDepartments = function getDepartments(){
     return new Promise(function(resolve, reject){
         reject();
@@ -84,7 +78,7 @@ exports.addEmployee = function addEmployee(employeeData){
 
 exports.getEmployeesByStatus = function getEmployeesByStatus(status){
     return new Promise(function(resolve, reject){
-        reject();
+        
     });
 }
 
