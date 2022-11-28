@@ -171,7 +171,18 @@ app.post("/departments/add", (req, res)=>{
 });
 
 app.post("/department/update", (req, res)=>{
-    
+    dat.updateDepartment(req.body).then(()=>{
+        res.redirect("/departments");
+    })
+});
+
+app.get("/department/:val", (req, res)=>{
+    dat.getDepartmentById(req.params.val).then((data)=>{
+        if(data == undefined) res.status(404).send("Department Not Found");
+        else res.render("department", {department: data});
+    }).catch(()=>{
+        res.status(404).send("Department Not Found");
+    })
 });
 
 app.use((req, res)=>{
