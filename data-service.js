@@ -66,13 +66,17 @@ exports.getAllEmployees = function getAllEmployees(){
 
 exports.getDepartments = function getDepartments(){
     return new Promise(function(resolve, reject){
-        reject();
+        Department.findAll().then((data)=>{
+            resolve(data);
+        }).catch(()=>{
+            reject("no results returned");
+        });
     });
 }
 
 exports.addEmployee = function addEmployee(employeeData){
     return new Promise(function(resolve, reject){
-        reject();
+        
     });
 }
 
