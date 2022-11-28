@@ -128,7 +128,7 @@ app.get("/employees", (req, res)=>{
         dat.getAllEmployees().then((data)=>{
             res.render("employees", {employees: data});
         }).catch((message)=>{
-            res.render({message: "no results"});
+            res.json({message: "no results"});
         });
     }
 });
