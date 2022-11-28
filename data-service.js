@@ -78,7 +78,13 @@ exports.addEmployee = function addEmployee(employeeData){
 
 exports.getEmployeesByStatus = function getEmployeesByStatus(status){
     return new Promise(function(resolve, reject){
-        
+        Employee.findAll({
+            where: {status: status}
+        }).then((data)=>{
+            resolve(data);
+        }).catch(()=>{
+            reject("no results returned");
+        });
     });
 }
 
