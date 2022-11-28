@@ -56,7 +56,11 @@ exports.initialize = function initialize(){
 
 exports.getAllEmployees = function getAllEmployees(){
     return new Promise(function(resolve, reject){
-        reject();
+        Employee.findAll().then((data)=>{
+            resolve(data);
+        }).cath(()=>{
+            reject("not results returned");
+        })
     });
 }
 
