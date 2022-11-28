@@ -155,3 +155,9 @@ exports.updateEmployee = function updateEmployee(employeeData){
         })
     });
 }
+
+exports.addDepartment = function addDepartment(departmentData){
+    return new Promise(function(resolve, reject)=>{
+        
+    });
+}
