@@ -102,7 +102,13 @@ exports.getEmployeesByDepartment = function getEmployeesByDepartment(department)
 
 exports.getEmployeesByManager = function getEmployeesByManager(manager){
     return new Promise(function(resolve, reject){
-        reject();
+        Employee.findAll({
+            where: {employeeManagerNum: manager}
+        }).then((data)=>{
+            resolve(data);
+        }).catch(()=>{
+            reject("no results returned");
+        });
     });
 }
 
