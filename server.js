@@ -102,33 +102,37 @@ app.get("/images", (req, res)=>{
 app.get("/employees", (req, res)=>{
     if(req.query.status){
         dat.getEmployeesByStatus(req.query.status).then((data)=>{
-            res.render("employees", {employees: data});
+            if(data.length > 0) res.render("employees", {employees: data});
+            else res.render("employees", {message: "no results"});;
         }).catch((message)=>{
-            res.render({message: "no results"});
+            res.render("employees", {message: "no results"});
         });
     }
 
     else if(req.query.department){
         dat.getEmployeesByDepartment(req.query.department).then((data)=>{
-            res.render("employees", {employees: data});
+            if(data.length > 0) res.render("employees", {employees: data});
+            else res.render("employees", {message: "no results"});
         }).catch((message)=>{
-            res.render({message: "no results"});
+            res.render("employees", {message: "no results"});
         })
     }
 
     else if(req.query.manager){
         dat.getEmployeesByManager(req.query.manager).then((data)=>{
-            res.render("employees", {employees: data});
+            if(data.length > 0) res.render("employees", {employees: data});
+            else res.render("employees", {message: "no results"});
         }).catch((message)=>{
-            res.render({message: "no results"});
+            res.render("employees", {message: "no results"});
         });
     }
 
     else{
         dat.getAllEmployees().then((data)=>{
-            res.render("employees", {employees: data});
+            if(data.length > 0) res.render("employees", {employees: data});
+            else res.render("employees", {message: "no results"});
         }).catch((message)=>{
-            res.json({message: "no results"});
+            res.render("employees", {message: "no results"});
         });
     }
 });
@@ -149,7 +153,8 @@ app.post("/employee/update", (req, res) => {
 
 app.get("/departments", (req, res)=>{
     dat.getDepartments().then((data)=>{
-        res.render("departments", {departments: data});
+        if(data > 0) res.render("departments", {departments: data});
+        else res.json({"Message": message});
     }).catch((message)=>{
         res.json({"Message": message});
     });
