@@ -1,3 +1,17 @@
+const Sequelize = require("sequelize");
+
+var sequelize = new Sequelize('ykncfxty', 'ykncfxty', 'f08ogSbiRkLJ677KnDlT17cjfW3rAVGw', {
+    host: 'peanut.db.elephantsql.com',
+    dialect: 'postgres',
+    port: 5432,
+    dialectOptions: {
+    ssl: true
+   },
+   query:{raw: true} // update here. You need it.
+   });
+
+sequelize.authenticate().then(()=> console.log('Connection success.'))
+.catch((err)=>console.log("Unable to connect to DB.", err));
 
 
 exports.initialize = function initialize(){
