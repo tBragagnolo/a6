@@ -77,7 +77,16 @@ exports.getDepartments = function getDepartments(){
 exports.addEmployee = function addEmployee(employeeData){
     return new Promise(function(resolve, reject){
         employeeData.isManager = (employeeData.isManager) ? true : false;
-        
+
+        for(var item in employeeData){
+            if(employeeData[item] = "") employeeData[item] = null;
+        }
+
+        Employee.create(employeeData).then(()=>{
+            resolve();
+        }).catch(()=>{
+            reject("unable to creat employee");
+        });
     });
 }
 
