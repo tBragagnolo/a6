@@ -90,7 +90,13 @@ exports.getEmployeesByStatus = function getEmployeesByStatus(status){
 
 exports.getEmployeesByDepartment = function getEmployeesByDepartment(department){
     return new Promise(function(resolve, reject){
-        reject();
+        Employee.findAll({
+            where: {department: department}
+        }).then((data)=>{
+            resolve(data);
+        }).catch(()=>{
+            reject("no results returned");
+        });
     });
 }
 
