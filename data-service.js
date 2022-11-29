@@ -78,7 +78,7 @@ exports.addEmployee = function addEmployee(employeeData){
     return new Promise(function(resolve, reject){
         employeeData.isManager = (employeeData.isManager) ? true : false;
 
-        for(var item in employeeData){
+        /*for(var item in employeeData){
             if(employeeData[item] == undefined) employeeData[item] = NULL;
         }
 
@@ -86,7 +86,7 @@ exports.addEmployee = function addEmployee(employeeData){
             resolve();
         }).catch(()=>{
             reject("unable to create employee");
-        });
+        });*/
     });
 }
 
