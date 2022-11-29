@@ -199,7 +199,7 @@ exports.getDepartmentById = function getDepartmentById(id){
 }
 
 exports.deleteEmployeeByNum = function deleteEmployeeByNum(num){
-    return new Promise(function(req, res){
+    return new Promise(function(resolve, reject){
         Employee.destroy({
             where: {employeeNum: num}
         }).then(()=>{
