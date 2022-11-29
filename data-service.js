@@ -79,7 +79,7 @@ exports.addEmployee = function addEmployee(employeeData){
         employeeData.isManager = (employeeData.isManager) ? true : false;
 
         for(var item in employeeData){
-            if(employeeData[item] == '') employeeData[item] = NULL;
+            if(employeeData[item] == '') employeeData[item] = null;
         }
 
         Employee.create(employeeData).then(()=>{
