@@ -85,13 +85,13 @@ app.get("/employees/add", (req, res)=>{
 app.post("/employees/add", (req, res)=>{
     dat.addEmployee(req.body).then(()=>{
         res.redirect("/employees");
-    }).catch((mes)=>{
+    }).catch(()=>{
         res.redirect("/employees");
     });
 });
 
 app.get("/images/add", (req, res)=>{
-    res.render("addImage", {layout: "main"});
+    res.render("addImage");
 });
 
 app.post("/images/add", upload.single("imageFile"), (req, res)=>{
