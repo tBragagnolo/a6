@@ -119,16 +119,16 @@ app.get("/employees", (req, res)=>{
         dat.getEmployeesByDepartment(req.query.department).then((data)=>{
             if(data.length > 0) res.render("employees", {employees: data});
             else res.render("employees", {message: "no results"});
-        }).catch((message)=>{
+        }).catch(()=>{
             res.render("employees", {message: "no results"});
-        })
+        });
     }
 
     else if(req.query.manager){
         dat.getEmployeesByManager(req.query.manager).then((data)=>{
             if(data.length > 0) res.render("employees", {employees: data});
             else res.render("employees", {message: "no results"});
-        }).catch((message)=>{
+        }).catch(()=>{
             res.render("employees", {message: "no results"});
         });
     }
@@ -137,7 +137,7 @@ app.get("/employees", (req, res)=>{
         dat.getAllEmployees().then((data)=>{
             if(data.length > 0) res.render("employees", {employees: data});
             else res.render("employees", {message: "no results"});
-        }).catch((message)=>{
+        }).catch(()=>{
             res.render("employees", {message: "no results"});
         });
     }
@@ -181,6 +181,8 @@ app.get("/employee/:val", (req, res)=>{
 app.post("/employee/update", (req, res) => {
     dat.updateEmployee(req.body).then(()=>{
         res.redirect("/employees");
+    }).catch(()=>{
+        res.status(500).send("Unable to update employee");
     });
 });
 
@@ -200,13 +202,17 @@ app.get("/departments/add", (req, res)=>{
 app.post("/departments/add", (req, res)=>{
     dat.addDepartment(req.body).then(()=>{
         res.redirect("/departments");
+    }).catch(()=>{
+        res.status(500).send("Unable to add department");
     });
 });
 
 app.post("/department/update", (req, res)=>{
     dat.updateDepartment(req.body).then(()=>{
         res.redirect("/departments");
-    })
+    }).catch(()=>{
+        res.status(500).send("Unable to update department");
+    });
 });
 
 app.get("/department/:val", (req, res)=>{
@@ -215,7 +221,7 @@ app.get("/department/:val", (req, res)=>{
         else res.render("department", {department: data});
     }).catch(()=>{
         res.status(404).send("Department Not Found");
-    })
+    });
 });
 
 app.get("/employees/delete/:val", (req, res)=>{
