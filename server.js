@@ -110,7 +110,7 @@ app.get("/employees", (req, res)=>{
         dat.getEmployeesByStatus(req.query.status).then((data)=>{
             if(data.length > 0) res.render("employees", {employees: data});
             else res.render("employees", {message: "no results"});;
-        }).catch((message)=>{
+        }).catch(()=>{
             res.render("employees", {message: "no results"});
         });
     }
