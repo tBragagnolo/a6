@@ -81,6 +81,9 @@ app.get("/employees/add", (req, res)=>{
 app.post("/employees/add", (req, res)=>{
     dat.addEmployee(req.body).then(()=>{
         res.redirect("/employees");
+    }).catch((mes)=>{
+        console.log(mes);
+        res.redirect("/employees");
     });
 });
 
