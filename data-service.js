@@ -194,6 +194,18 @@ exports.getDepartmentById = function getDepartmentById(id){
             resolve(data[0]);
         }).catch(()=>{
             reject("no results returned");
+        });
+    });
+}
+
+exports.deleteEmployeeByNum = function deleteEmployeeByNum(num){
+    return new Promise(function(req, res){
+        Employee.destroy({
+            where: {employeeNum: num}
+        }).then(()=>{
+            resolve();
+        }).catch(()=>{
+            reject("unable to deletes employee");
         })
     });
 }
