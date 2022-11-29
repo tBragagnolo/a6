@@ -78,6 +78,8 @@ exports.addEmployee = function addEmployee(employeeData){
     return new Promise(function(resolve, reject){
         employeeData.isManager = (employeeData.isManager) ? true : false;
 
+        console.log(employeeData);
+        resolve();
         /*for(var item in employeeData){
             if(employeeData[item] == undefined) employeeData[item] = NULL;
         }
@@ -143,7 +145,7 @@ exports.updateEmployee = function updateEmployee(employeeData){
         employeeData.isManager = (employeeData.isManager) ? true : false;
 
         for(var item in employeeData){
-            if(employeeData[item] = "") employeeData[item] = null;
+            if(employeeData[item] == "") employeeData[item] = null;
         }
 
         Employee.update(employeeData, {
@@ -159,7 +161,7 @@ exports.updateEmployee = function updateEmployee(employeeData){
 exports.addDepartment = function addDepartment(departmentData){
     return new Promise(function(resolve, reject){
         for(var item in departmentData){
-            if(departmentData[item] = "") departmentData[item] = null;
+            if(departmentData[item] == "") departmentData[item] = null;
         }
 
         Department.create(departmentData).then(()=>{
@@ -173,7 +175,7 @@ exports.addDepartment = function addDepartment(departmentData){
 exports.updateDepartment = function updateDepartment(departmentData){
     return new Promise(function(resolve, reject){
         for(var item in departmentData){
-            if(departmentData[item] = "") departmentData[item] = null;
+            if(departmentData[item] == "") departmentData[item] = null;
         }
 
         Department.update(departmentData, {
