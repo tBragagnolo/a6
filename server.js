@@ -82,7 +82,7 @@ app.post("/employees/add", (req, res)=>{
     dat.addEmployee(req.body).then(()=>{
         res.redirect("/employees");
     }).catch((mes)=>{
-        console.log(mes);
+        console.log("\n" + mes + "\n");
         res.redirect("/employees");
     });
 });
