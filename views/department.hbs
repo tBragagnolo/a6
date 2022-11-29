@@ -3,7 +3,7 @@
         <h2>{{department.departmentName}} - Department: {{department.departmentId}}</h2>
         <hr />
         <form method="post" action="/departments/update">
-            
+            <input type="hidden" name="departmentId" value={{department.departmentId}}>
             <input class="form-control" type="text" name = "departmentName" value={{department.departmentName}}>
             <input type="submit" class="btn btn-primary pull-right" value="Update Department" /><br /><br /><br />
         </form>
