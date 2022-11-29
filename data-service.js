@@ -79,13 +79,13 @@ exports.addEmployee = function addEmployee(employeeData){
         employeeData.isManager = (employeeData.isManager) ? true : false;
 
         for(var item in employeeData){
-            if(employeeData[item] == undefined) employeeData[item] = null;
+            if(employeeData[item] == undefined) employeeData[item] = NULL;
         }
 
         Employee.create(employeeData).then(()=>{
             resolve();
         }).catch(()=>{
-            reject("unable to creat employee");
+            reject("unable to create employee");
         });
     });
 }
