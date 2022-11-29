@@ -75,7 +75,11 @@ app.get("/about", (req, res) => {
 });
 
 app.get("/employees/add", (req, res)=>{
-    res.render("addEmployee", {layout: "main"});
+    dat.getDepartments().then((data)=>{
+        res.render("addEmployee", {departments: data});
+    }).catch(()=>{
+        res.render("addEmployee", {departments: []});
+    });
 });
 
 app.post("/employees/add", (req, res)=>{
