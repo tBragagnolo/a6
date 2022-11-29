@@ -82,14 +82,11 @@ exports.addEmployee = function addEmployee(employeeData){
             if(employeeData[item] == undefined) employeeData[item] = null;
         }
 
-        console.log(employeeData);
-        resolve();
-
-        /*Employee.create(employeeData).then(()=>{
+        Employee.create(employeeData).then(()=>{
             resolve();
         }).catch(()=>{
             reject("unable to creat employee");
-        });*/
+        });
     });
 }
 
