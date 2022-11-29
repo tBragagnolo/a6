@@ -205,7 +205,7 @@ exports.deleteEmployeeByNum = function deleteEmployeeByNum(num){
         }).then(()=>{
             resolve();
         }).catch(()=>{
-            reject("unable to deletes employee");
+            reject();
         })
     });
 }

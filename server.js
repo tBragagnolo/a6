@@ -219,6 +219,14 @@ app.get("/department/:val", (req, res)=>{
     })
 });
 
+app.get("/employees/delete/:val", (req, res)=>{
+    dat.deleteEmployeeByNum(req.params.val).then(()=>{
+        res.redirect("/employees");
+    }).catch(()=>{
+        res.status(500).send("Unable to Remove Employee / Employee not found");
+    });
+});
+
 app.use((req, res)=>{
     res.status(404).send("<h1 style='font-family:verdana;'>Error 404: Page not found</h1>");
 });
