@@ -10,7 +10,7 @@ var userSchema = new Schema({
     },
     "password": String,
     "email": String,
-    
+    "loginHistory": [{"dateTime": Date, "userAgent": String}]
 });
 
 var Test = mongoose.model("test_coll", testSchema);
