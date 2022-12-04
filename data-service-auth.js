@@ -1,7 +1,7 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-//mongoose.connect("mongodb+srv://dbUser:12312378DBpass!@senecaweb.ecgnt9t.mongodb.net/a6?retryWrites=true&w=majority");
+var uri = "mongodb+srv://dbUser:12312378DBpass!@senecaweb.ecgnt9t.mongodb.net/a6?retryWrites=true&w=majority";
 
 var userSchema = new Schema({
     "userName": {
@@ -17,11 +17,11 @@ let User; //User instance
 
 exports.initialize = function initialize(){
     return new Promise(function(resolve, reject){
-        mongoose.createConnection("mongodb+srv://dbUser:12312378DBpass!@senecaweb.ecgnt9t.mongodb.net/a6?retryWrites=true&w=majority")
-        .then(()=>{
-            
-        }).catch((err)=>{
-            reject(err);
+        User = mongoose.createConnection(uri, {useNewUrlParser: true, useUnifiedTopology: true}, function(err){
+            if(err) reject(err);
+            else{
+                var user = User.model("users", userSchema); 
+            }
         });
     });
 }
