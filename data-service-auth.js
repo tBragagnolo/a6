@@ -34,6 +34,19 @@ exports.registerUser = function registerUser(userData){
         else if(userData.password != userData.password2){
             reject("Error: Passwords do not match");
         }
+        else{
+            let newUser = new User(userData);
+            newUser.save().then(()=>{
+                resolve();
+            }).catch((err)=>{
+                if(err.code == 11000){
+                    reject("User Name already taken");
+                }
+                else{
+                    reject("There was an error when creating the user", err);
+                }
+            });
+        }
     });
 }
 
