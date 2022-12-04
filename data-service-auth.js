@@ -50,16 +50,10 @@ exports.registerUser = function registerUser(userData){
     });
 }
 
+exports.checkUser = function checkUser(userData){
+    User.findOne({"userName": userData.userName}).exec().then((data)=>{
 
-/*var Test = mongoose.model("test_coll", testSchema);
+    }).catch(()=>{
 
-var testDoc = new Test({
-    name: "Hello",
-    num: 2
-});
-
-testDoc.save().then(()=>{
-    console.log("Success");
-}).catch(()=>{
-    console.log("Error");
-})*/
+    });
+}
