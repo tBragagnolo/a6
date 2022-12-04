@@ -236,8 +236,14 @@ app.use((req, res)=>{
     res.status(404).send("<h1 style='font-family:verdana;'>Error 404: Page not found</h1>");
 });
 
-dat.initialize().then(()=>{
+dat.initialize().then(datAuth.initialize).then(()=>{
+    app.listen(port, onStart);
+}).catch((mes)=>{
+    console.log(mes);
+});
+
+/*dat.initialize().then(()=>{
     app.listen(port, onStart);
 }).catch((message)=>{
     console.log(message);
-});
+});*/
