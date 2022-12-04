@@ -22,7 +22,8 @@ exports.initialize = function initialize(){
         User = mongoose.createConnection(uri, {useNewUrlParser: true, useUnifiedTopology: true}, function(err){
             if(err) reject(err);
             else{
-                user = User.model("users", userSchema); 
+                User.model("users", userSchema);
+                resolve();
             }
         });
     });
