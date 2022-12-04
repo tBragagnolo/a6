@@ -15,13 +15,14 @@ var userSchema = new Schema({
 });
 
 let User; //User instance
+var user;
 
 exports.initialize = function initialize(){
     return new Promise(function(resolve, reject){
         User = mongoose.createConnection(uri, {useNewUrlParser: true, useUnifiedTopology: true}, function(err){
             if(err) reject(err);
             else{
-                var user = User.model("users", userSchema); 
+                user = User.model("users", userSchema); 
             }
         });
     });
@@ -45,7 +46,7 @@ initialize().then(()=>{
     console.log(err);
 });
 
-var test = new User({
+var test = new user({
     userName: "Hello",
     password: "pass",
     email: "mail@gmail.com"
