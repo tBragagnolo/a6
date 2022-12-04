@@ -16,7 +16,15 @@ var userSchema = new Schema({
 let User; //Object
 
 exports.initialize = function initialize(){
-    
+    return new Promise(function(resolve, reject){
+
+    });
+}
+
+exports.registerUser = function registerUser(userData){
+    return new Promise(function(resolve, reject){
+
+    });
 }
 
 /*var Test = mongoose.model("test_coll", testSchema);
