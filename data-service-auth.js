@@ -45,6 +45,17 @@ initialize().then(()=>{
     console.log(err);
 });
 
+var test = new User({
+    userName: "Hello",
+    password: "pass",
+    email: "mail@gmail.com"
+});
+
+test.save().then(()=>{
+    console.log("Save Succes");
+}).catch(()=>{
+    console.log("Error");
+})
 
 /*var Test = mongoose.model("test_coll", testSchema);
 
