@@ -37,11 +37,11 @@ exports.registerUser = function registerUser(userData){
 //Test
 initialize();
 User.on('error', (err)=>{
-    console.log("db1 error!");
+    console.log("User error!");
 });
   
 User.once('open', ()=>{
-    console.log("db1 success!");
+    console.log("User success!");
 });
 
 /*var Test = mongoose.model("test_coll", testSchema);
