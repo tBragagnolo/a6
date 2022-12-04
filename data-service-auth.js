@@ -13,6 +13,8 @@ var userSchema = new Schema({
     "loginHistory": [{"dateTime": Date, "userAgent": String}]
 });
 
+let User; //Object
+
 var Test = mongoose.model("test_coll", testSchema);
 
 var testDoc = new Test({
