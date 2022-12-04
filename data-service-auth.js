@@ -5,8 +5,15 @@ mongoose.connect("mongodb+srv://dbUser:12312378DBpass!@senecaweb.ecgnt9t.mongodb
 
 var testSchema = new Schema({
     "name": String,
-    "number": {
+    "num": {
         "type": Number,
         "default": 0
     }
+});
+
+var Test = mongoose.model("test_coll", testSchema);
+
+var testDoc = new Test({
+    name: "Hello",
+    num: 2
 });
