@@ -18,7 +18,7 @@ let User; //User instance
 
 exports.initialize = function initialize(){
     return new Promise(function(resolve, reject){
-        User = mongoose.createConnection(uri);
+        User = mongoose.createConnection(uri, {useNewUrlParser: true, useUnifiedTopology: true});
         resolve();
     });
 }
