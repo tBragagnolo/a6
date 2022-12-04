@@ -15,17 +15,11 @@ var userSchema = new Schema({
 });
 
 let User; //User instance
-var user;
 
 exports.initialize = function initialize(){
     return new Promise(function(resolve, reject){
-        User = mongoose.createConnection(uri, {useNewUrlParser: true, useUnifiedTopology: true}, function(err){
-            if(err) reject(err);
-            else{
-                User.model("users", userSchema);
-                resolve();
-            }
-        });
+        User = mongoose.createConnection(uri);
+        resolve();
     });
 }
 
@@ -41,23 +35,14 @@ exports.registerUser = function registerUser(userData){
 }
 
 //Test
-initialize().then(()=>{
-    console.log("Success");
-}).catch((err)=>{
-    console.log(err);
+initialize();
+User.on('error', (err)=>{
+    console.log("db1 error!");
 });
-
-var test = new user({
-    userName: "Hello",
-    password: "pass",
-    email: "mail@gmail.com"
+  
+User.once('open', ()=>{
+    console.log("db1 success!");
 });
-
-test.save().then(()=>{
-    console.log("Save Succes");
-}).catch(()=>{
-    console.log("Error");
-})
 
 /*var Test = mongoose.model("test_coll", testSchema);
 
