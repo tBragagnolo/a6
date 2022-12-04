@@ -23,7 +23,12 @@ exports.initialize = function initialize(){
 
 exports.registerUser = function registerUser(userData){
     return new Promise(function(resolve, reject){
-
+        if(userData.password == "" || userData.password2 == ""){
+            reject("Error: Password cannot be empty");
+        }
+        else if(userData.password != userData.password2){
+            reject("Error: Passwords do not match");
+        }
     });
 }
 
