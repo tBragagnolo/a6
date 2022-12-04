@@ -16,6 +16,7 @@ var multer = require("multer");
 var exphbs = require("express-handlebars");
 var fs = require('fs');
 var dat = require('./data-service');
+var datAuth = require('./data-service-auth');
 
 app = express();
 var port = process.env.PORT || 8080;
