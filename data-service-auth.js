@@ -17,3 +17,9 @@ var testDoc = new Test({
     name: "Hello",
     num: 2
 });
+
+testDoc.save().then(()=>{
+    console.log("Success");
+}).catch(()=>{
+    console.log("Error");
+})
