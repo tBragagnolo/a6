@@ -14,6 +14,7 @@ var express = require("express");
 var path = require("path");
 var multer = require("multer");
 var exphbs = require("express-handlebars");
+var clientSessions = require("client-sessions");
 var fs = require('fs');
 var dat = require('./data-service');
 var datAuth = require('./data-service-auth');
