@@ -15,7 +15,11 @@ var userSchema = new Schema({
 
 let User; //Object
 
-var Test = mongoose.model("test_coll", testSchema);
+exports.initialize = function initialize(){
+    
+}
+
+/*var Test = mongoose.model("test_coll", testSchema);
 
 var testDoc = new Test({
     name: "Hello",
@@ -26,4 +30,4 @@ testDoc.save().then(()=>{
     console.log("Success");
 }).catch(()=>{
     console.log("Error");
-})
+})*/
