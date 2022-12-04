@@ -18,7 +18,7 @@ let User; //User instance
 
 exports.initialize = function initialize(){
     return new Promise(function(resolve, reject){
-        User = mongoose.createConnection(uri, {useNewUrlParser: true, useUnifiedTopology: true});
+        mongoose.createConnection(uri, {useNewUrlParser: true, useUnifiedTopology: true});
         resolve();
     });
 }
@@ -35,14 +35,22 @@ exports.registerUser = function registerUser(userData){
 }
 
 //Test
-initialize();
-User.on('error', (err)=>{
-    console.log("User error!");
+let hi = mongoose.createConnection(uri);
+
+hi = hi.model("users", userSchema);
+
+//var model = hi.model("users", userSchema);
+var test = new hi({
+    userName: "Hello",
+    password: "pass",
+    email: "email"
 });
-  
-User.once('open', ()=>{
-    console.log("User success!");
-});
+
+test.save().then(()=>{
+    console.log("Save Succes");
+}).catch(()=>{
+    console.log("Save Error");
+})
 
 /*var Test = mongoose.model("test_coll", testSchema);
 
