@@ -18,7 +18,10 @@ let User; //User instance
 
 exports.initialize = function initialize(){
     return new Promise(function(resolve, reject){
-        mongoose.createConnection(uri, {useNewUrlParser: true, useUnifiedTopology: true});
+        User = mongoose.createConnection(uri, {useNewUrlParser: true, useUnifiedTopology: true}, function(err){
+            if(err) reject(err);
+        });
+        User = User.model("users", userSchema);
         resolve();
     });
 }
@@ -35,12 +38,11 @@ exports.registerUser = function registerUser(userData){
 }
 
 //Test
-let hi = mongoose.createConnection(uri);
+initialize().catch((err)=>{
+    console.log(err);
+})
 
-hi = hi.model("users", userSchema);
-
-//var model = hi.model("users", userSchema);
-var test = new hi({
+var test = new User({
     userName: "Hello",
     password: "pass",
     email: "email"
