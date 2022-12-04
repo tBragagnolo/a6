@@ -3,12 +3,14 @@ var Schema = mongoose.Schema;
 
 mongoose.connect("mongodb+srv://dbUser:12312378DBpass!@senecaweb.ecgnt9t.mongodb.net/a6?retryWrites=true&w=majority");
 
-var testSchema = new Schema({
-    "name": String,
-    "num": {
-        "type": Number,
-        "default": 0
-    }
+var userSchema = new Schema({
+    "userName": {
+        type: String,
+        unique: true
+    },
+    "password": String,
+    "email": String,
+    
 });
 
 var Test = mongoose.model("test_coll", testSchema);
