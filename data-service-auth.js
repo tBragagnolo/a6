@@ -1,4 +1,5 @@
 var mongoose = require("mongoose");
+const { initialize } = require("./data-service");
 var Schema = mongoose.Schema;
 
 var uri = "mongodb+srv://dbUser:12312378DBpass!@senecaweb.ecgnt9t.mongodb.net/a6?retryWrites=true&w=majority";
@@ -36,6 +37,14 @@ exports.registerUser = function registerUser(userData){
         }
     });
 }
+
+//Test
+initialize().then(()=>{
+    console.log("Success");
+}).catch((err)=>{
+    console.log(err);
+});
+
 
 /*var Test = mongoose.model("test_coll", testSchema);
 
