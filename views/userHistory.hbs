@@ -1,0 +1,20 @@
+<h2>{{session.user.userName}} {{session.user.email}}</h2>
+
+<div class="row">
+    <div class="col-md-12">
+        <div class="table-responsive">
+            <table class="table">
+                <tr>
+                    <td><b>Department Number</b></td>
+                    <td><b>Department Name</b></td>
+                </tr>
+                {{#each departments}}
+                    <tr>
+                        <td><a href="/employees?department={{departmentId}}">{{departmentId}}</a></td>
+                        <td><a href="/department/{{departmentId}}">{{departmentName}}</a></td>
+                    </tr>
+                {{/each}}
+            </table>
+        </div>
+    </div>
+</div>

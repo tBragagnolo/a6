@@ -59,14 +59,14 @@ app.set("view engine", ".hbs");
 
 //Client Sessions
 app.use(clientSessions({
-    cookieName: "userSession",
+    cookieName: "session",
     secret: "BTIFinalAssignSecretString_05092",
     duration: 2 * 60 * 1000,
     activeDuration: 60 * 1000 
 }));
 
 app.use(function(req, res, next){
-    res.locals.session = req.userSession;
+    res.locals.session = req.session;
     next();
 });
 
@@ -86,7 +86,7 @@ app.use(express.static("./public"));
 
 //For Login
 function ensureLogin(req, res, next){
-    if(!req.userSession.user) res.redirect("/login");
+    if(!req.session.user) res.redirect("/login");
     else next();
 }
 
@@ -289,7 +289,7 @@ app.post("/login", (req, res)=>{
 });
 
 app.get("/logout", (req, res)=>{
-    req.userSession.reset();
+    req.session.reset();
     res.redirect("/");
 });
 
