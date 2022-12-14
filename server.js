@@ -25,6 +25,7 @@ var port = process.env.PORT || 8080;
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
+//Images
 var storage = multer.diskStorage({
     destination: "./public/images/uploaded",
     filename: function(req, file, cb){
@@ -33,6 +34,7 @@ var storage = multer.diskStorage({
 });
 var upload = multer({storage: storage});
 
+//Handlebars
 app.engine(".hbs", exphbs.engine({
     extname: ".hbs",
     defaultLayout: "main",
@@ -55,6 +57,7 @@ app.engine(".hbs", exphbs.engine({
 }));
 app.set("view engine", ".hbs");
 
+//Client Sessions
 app.use(clientSessions({
     cookieName: "userSession",
     secret: "BTIFinalAssignSecretString_05092",
@@ -62,10 +65,17 @@ app.use(clientSessions({
     activeDuration: 60 * 1000 
 }));
 
+app.use((req, res, next)=>{
+    res.locals.session = req.session;
+    next();
+});
+
+//Server start display function
 function onStart(){
     console.log("Express http server listening on port", port);
 }
 
+//Path
 app.use(function(req,res,next){
     let route = req.baseUrl + req.path;
     app.locals.activeRoute = (route == "/") ? "/" : route.replace(/\/$/, "");
@@ -74,6 +84,13 @@ app.use(function(req,res,next){
 
 app.use(express.static("./public"));
 
+//For Login
+function ensureLogin(req, res, next){
+    if(!req.userSession.user) res.redirect("/login");
+    else next();
+}
+
+//Routes
 app.get("/", (req, res) =>{
     res.render("home", {layout: "main"});
 });
