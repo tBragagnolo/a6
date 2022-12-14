@@ -278,21 +278,23 @@ app.post("/login", (req, res)=>{
     req.body.userAgent = req.get('User-Agent');
     dataServiceAuth.checkUser(req.body).then((user) => {
         req.session.user = {
-        userName: ,
-        email: ,
-        loginHistory: ,
+        userName: user.userName,
+        email: user.email,
+        loginHistory: user.loginHistory,
         }
-        res.redirect('/employees');
-       })
-       
+        res.redirect("/employees");
+    }).catch((err)=>{
+        res.render("login", {errorMessage: err, userName: req.body.userName});
+    });
 });
 
 app.get("/logout", (req, res)=>{
-
+    req.userSession.reset();
+    res.redirect("/");
 });
 
-app.get("/userHistory", (req, res)=>{
-
+app.get("/userHistory", ensureLogin(),(req, res)=>{
+    res.render("userHistory");
 });
 
 app.use((req, res)=>{
