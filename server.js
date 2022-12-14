@@ -259,15 +259,19 @@ app.get("/employees/delete/:val", ensureLogin(),(req, res)=>{
 
 //Authentication Routes
 app.get("/login", (req, res)=>{
-
+    res.render("login");
 });
 
 app.get("/register", (req, res)=>{
-
+    res.render("register");
 });
 
 app.post("/register", (req, res)=>{
-
+    datAuth.registerUser(req.body).then(()=>{
+        res.render("register", {successMessage: "User created"});
+    }).catch(()=>{
+        res.render("register", {errorMessage: err, userName: req.body.userName});
+    });
 });
 
 app.post("/login", (req, res)=>{
