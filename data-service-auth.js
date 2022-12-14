@@ -58,27 +58,29 @@ exports.registerUser = function registerUser(userData){
 }
 
 exports.checkUser = function checkUser(userData){
-    User.findOne({"userName": userData.userName}).exec().then((data)=>{
-        if(!data) reject("Unable to find user:", userData.userName);
-        else{
-            bcrypt.compare(userData.password, data.password).then((res)=>{
-                if(res === true){
-                    data.loginHistory.push({dateTime: (new Date()).toString(), userAgent: userData.userAgent});
-
-                    User.updateOne({"userName": data.userName}, {$set: {loginHistory: data.loginHistory}}).exec().then(()=>{
-                        resolve(data);
-                    }).catch(()=>{
-                        reject("An error occured");
-                    })
-                }
-                else{
-                    reject("Incorrect password");
-                }
-            }).catch(()=>{
-                reject("Unable to compare data");
-            })
-        }
-    }).catch(()=>{
-        reject(userData.userName, "not found");
+    return new Promise(function(resolve, reject){
+        User.findOne({"userName": userData.userName}).exec().then((data)=>{
+            if(!data) reject("Unable to find user:", userData.userName);
+            else{
+                bcrypt.compare(userData.password, data.password).then((res)=>{
+                    if(res === true){
+                        data.loginHistory.push({dateTime: (new Date()).toString(), userAgent: userData.userAgent});
+    
+                        User.updateOne({"userName": data.userName}, {$set: {loginHistory: data.loginHistory}}).exec().then(()=>{
+                            resolve(data);
+                        }).catch(()=>{
+                            reject("An error occured");
+                        })
+                    }
+                    else{
+                        reject("Incorrect password");
+                    }
+                }).catch(()=>{
+                    reject("Unable to compare data");
+                })
+            }
+        }).catch(()=>{
+            reject(userData.userName, "not found");
+        });
     });
 }

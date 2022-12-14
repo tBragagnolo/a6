@@ -276,7 +276,7 @@ app.post("/register", (req, res)=>{
 
 app.post("/login", (req, res)=>{
     req.body.userAgent = req.get('User-Agent');
-    dataServiceAuth.checkUser(req.body).then((user) => {
+    datAuth.checkUser(req.body).then((user) => {
         req.session.user = {
         userName: user.userName,
         email: user.email,
