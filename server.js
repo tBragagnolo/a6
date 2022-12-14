@@ -257,6 +257,31 @@ app.get("/employees/delete/:val", ensureLogin(),(req, res)=>{
     });
 });
 
+//Authentication Routes
+app.get("/login", (req, res)=>{
+
+});
+
+app.get("/register", (req, res)=>{
+
+});
+
+app.post("/register", (req, res)=>{
+
+});
+
+app.post("/login", (req, res)=>{
+
+});
+
+app.get("/logout", (req, res)=>{
+
+});
+
+app.get("/userHistory", (req, res)=>{
+
+});
+
 app.use((req, res)=>{
     res.status(404).send("<h1 style='font-family:verdana;'>Error 404: Page not found</h1>");
 });
