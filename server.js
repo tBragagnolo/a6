@@ -99,7 +99,7 @@ app.get("/about", (req, res) => {
     res.render("about", {layout: "main"});
 });
 
-app.get("/employees/add", ensureLogin(),(req, res)=>{
+app.get("/employees/add", ensureLogin,(req, res)=>{
     dat.getDepartments().then((data)=>{
         res.render("addEmployee", {departments: data});
     }).catch(()=>{
@@ -107,7 +107,7 @@ app.get("/employees/add", ensureLogin(),(req, res)=>{
     });
 });
 
-app.post("/employees/add", ensureLogin(),(req, res)=>{
+app.post("/employees/add", ensureLogin,(req, res)=>{
     dat.addEmployee(req.body).then(()=>{
         res.redirect("/employees");
     }).catch(()=>{
@@ -115,22 +115,22 @@ app.post("/employees/add", ensureLogin(),(req, res)=>{
     });
 });
 
-app.get("/images/add", ensureLogin(),(req, res)=>{
+app.get("/images/add", ensureLogin,(req, res)=>{
     res.render("addImage");
 });
 
-app.post("/images/add", ensureLogin(),upload.single("imageFile"), (req, res)=>{
+app.post("/images/add", ensureLogin,upload.single("imageFile"), (req, res)=>{
     res.redirect("/images");
 });
 
-app.get("/images", ensureLogin(),(req, res)=>{
+app.get("/images", ensureLogin,(req, res)=>{
     fs.readdir("./public/images/uploaded", function(err, items){
         if(err) console.log(err);
         else res.render("images", {images: items});
     });
 });
 
-app.get("/employees", ensureLogin(),(req, res)=>{
+app.get("/employees", ensureLogin,(req, res)=>{
     if(req.query.status){
         dat.getEmployeesByStatus(req.query.status).then((data)=>{
             if(data.length > 0) res.render("employees", {employees: data});
@@ -168,7 +168,7 @@ app.get("/employees", ensureLogin(),(req, res)=>{
     }
 });
 
-app.get("/employee/:val", ensureLogin(),(req, res)=>{
+app.get("/employee/:val", ensureLogin,(req, res)=>{
     // initialize an empty object to store the values
     let viewData = {};
 
@@ -203,7 +203,7 @@ app.get("/employee/:val", ensureLogin(),(req, res)=>{
     });
 });
 
-app.post("/employee/update", ensureLogin(),(req, res) => {
+app.post("/employee/update", ensureLogin,(req, res) => {
     dat.updateEmployee(req.body).then(()=>{
         res.redirect("/employees");
     }).catch(()=>{
@@ -211,7 +211,7 @@ app.post("/employee/update", ensureLogin(),(req, res) => {
     });
 });
 
-app.get("/departments", ensureLogin(),(req, res)=>{
+app.get("/departments", ensureLogin,(req, res)=>{
     dat.getDepartments().then((data)=>{
         if(data.length > 0) res.render("departments", {departments: data});
         else res.render("departments", {message: "no results"});
@@ -220,11 +220,11 @@ app.get("/departments", ensureLogin(),(req, res)=>{
     });
 });
 
-app.get("/departments/add", ensureLogin(),(req, res)=>{
+app.get("/departments/add", ensureLogin,(req, res)=>{
     res.render("addDepartment");
 });
 
-app.post("/departments/add", ensureLogin(),(req, res)=>{
+app.post("/departments/add", ensureLogin,(req, res)=>{
     dat.addDepartment(req.body).then(()=>{
         res.redirect("/departments");
     }).catch(()=>{
@@ -232,7 +232,7 @@ app.post("/departments/add", ensureLogin(),(req, res)=>{
     });
 });
 
-app.post("/department/update", ensureLogin(),(req, res)=>{
+app.post("/department/update", ensureLogin,(req, res)=>{
     dat.updateDepartment(req.body).then(()=>{
         res.redirect("/departments");
     }).catch(()=>{
@@ -240,7 +240,7 @@ app.post("/department/update", ensureLogin(),(req, res)=>{
     });
 });
 
-app.get("/department/:val", ensureLogin(),(req, res)=>{
+app.get("/department/:val", ensureLogin,(req, res)=>{
     dat.getDepartmentById(req.params.val).then((data)=>{
         if(data == undefined) res.status(404).send("Department Not Found");
         else res.render("department", {department: data});
@@ -249,7 +249,7 @@ app.get("/department/:val", ensureLogin(),(req, res)=>{
     });
 });
 
-app.get("/employees/delete/:val", ensureLogin(),(req, res)=>{
+app.get("/employees/delete/:val", ensureLogin,(req, res)=>{
     dat.deleteEmployeeByNum(req.params.val).then(()=>{
         res.redirect("/employees");
     }).catch(()=>{
@@ -293,7 +293,7 @@ app.get("/logout", (req, res)=>{
     res.redirect("/");
 });
 
-app.get("/userHistory", ensureLogin(),(req, res)=>{
+app.get("/userHistory", ensureLogin,(req, res)=>{
     res.render("userHistory");
 });
 
