@@ -6,7 +6,7 @@
 * 
 * Name: Tom Bragagnolo Student ID: 139157218 Date: December 13, 2022
 *
-* Online (Cyclic) Link: https://smiling-pear-xerus.cyclic.app
+* Online (Cyclic) Link: 
 *
 ********************************************************************************/ 
 
