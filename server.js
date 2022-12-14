@@ -275,7 +275,16 @@ app.post("/register", (req, res)=>{
 });
 
 app.post("/login", (req, res)=>{
-
+    req.body.userAgent = req.get('User-Agent');
+    dataServiceAuth.checkUser(req.body).then((user) => {
+        req.session.user = {
+        userName: ,
+        email: ,
+        loginHistory: ,
+        }
+        res.redirect('/employees');
+       })
+       
 });
 
 app.get("/logout", (req, res)=>{
