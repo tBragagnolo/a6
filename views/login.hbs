@@ -2,3 +2,20 @@
     <div class="alert alert-danger"> <strong>Error:</strong> {{errorMessage}}</div>
 {{/if}}
 
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+        
+            <h2>Login</h2>
+
+            <hr>
+            <br>
+        
+            <form method="post" action="/login">
+                <input class="form-control" type="text" name="userName" {{#if userName}}value="{{userName}}"{{else}}value="User Name"{{/if}} required><br>
+                <input class="form-constrol" type="password" name="password" value="Password" required>
+                <input type="submit" class="btn btn-primary pull-right" value="Login" /><br /><br /><br />
+            </form>
+        </div>
+    </div>
+</div>
