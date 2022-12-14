@@ -1,5 +1,4 @@
 var mongoose = require("mongoose");
-const { initialize } = require("./data-service");
 var Schema = mongoose.Schema;
 
 var uri = "mongodb+srv://dbUser:12312378DBpass!@senecaweb.ecgnt9t.mongodb.net/a6?retryWrites=true&w=majority";

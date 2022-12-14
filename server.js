@@ -55,6 +55,13 @@ app.engine(".hbs", exphbs.engine({
 }));
 app.set("view engine", ".hbs");
 
+app.use(clientSessions({
+    cookieName: "userSession",
+    secret: "BTIFinalAssignSecretString_05092",
+    duration: 2 * 60 * 1000,
+    activeDuration: 60 * 1000 
+}));
+
 function onStart(){
     console.log("Express http server listening on port", port);
 }
@@ -240,7 +247,7 @@ app.use((req, res)=>{
 dat.initialize().then(datAuth.initialize).then(()=>{
     app.listen(port, onStart);
 }).catch((mes)=>{
-    console.log(mes);
+    console.log("Unable to start server", mes);
 });
 
 /*dat.initialize().then(()=>{
