@@ -28,7 +28,7 @@ exports.initialize = function initialize(){
 
 exports.registerUser = function registerUser(userData){
     return new Promise(function(resolve, reject){
-        if(userData.password == "" || userData.password2 == ""){
+        if(userData.password == " " || userData.password2 == " "){
             reject("Error: Password cannot be empty");
         }
         else if(userData.password != userData.password2){
@@ -36,14 +36,21 @@ exports.registerUser = function registerUser(userData){
         }
         else{
             let newUser = new User(userData);
-            newUser.save().then(()=>{
-                resolve();
+            
+            bcrypt.hash(newUser.password, 10,).then((hash)=>{
+                newUser.password = hash;
+
+                newUser.save().then(()=>{
+                    resolve();
+                }).catch(()=>{
+                    reject("Error Saving New User");
+                });
             }).catch((err)=>{
                 if(err.code == 11000){
-                    reject("User Name already taken");
+                    reject("Username Already Taken");
                 }
                 else{
-                    reject("There was an error when creating the user", err);
+                    reject("Unable to Create User");
                 }
             });
         }
